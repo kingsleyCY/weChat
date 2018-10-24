@@ -1,0 +1,35 @@
+/**index.wxss**/
+.container {
+  padding: 20rpx 50rpx;
+  font-size: 12px;
+  font-family: "楷体";
+}
+.commonts-box {
+  width: 100%;
+}
+.commonts-box .commonts-title {
+  width: 100%;
+  color: #e74851;
+  line-height: 60rpx;
+}
+.commonts-title .left-title {
+  width: 150rpx;
+  display: inline-block;
+  border: 1.5px solid #e74851;
+  border-bottom-color: white;
+  border-top-left-radius: 15rpx;
+  border-top-right-radius: 15rpx;
+  text-align: center;
+  box-sizing: border-box;
+}
+.commonts-title .right-title {
+  display: inline-block;
+  width: calc(100% - 150rpx);
+  text-align: right;
+  border-bottom: 1.5px solid #e74851;
+  box-sizing: border-box;
+}
+.commonts-count {
+  font-family: Impact!important;
+  font-size: 20px;
+}

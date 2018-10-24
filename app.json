@@ -1,14 +1,15 @@
 {
   "pages": [
+    "pages/messTome/messTome",
     "pages/indexPage/indexPage",
     "pages/someNote/someNote",
     "pages/mySelf/mySelf",
-    "pages/messTome/messTome"
+    "pages/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "Cheng丶C",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
