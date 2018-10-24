@@ -34,6 +34,7 @@ App({
     })
   },
   globalData: {
+    BASE_URL: 'https://lionynn.cn/apis/api',
     userInfo: null
   }
 })

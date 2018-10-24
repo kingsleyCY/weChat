@@ -1,12 +1,45 @@
 {
-  "pages":[
-    "pages/index/index",
-    "pages/demo/index"
+  "pages": [
+    "pages/indexPage/indexPage",
+    "pages/someNote/someNote",
+    "pages/mySelf/mySelf",
+    "pages/messTome/messTome"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color":"#666666",
+    "selectedColor":"#06bd04",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/indexPage/indexPage",
+        "text": "夕拾",
+        "iconPath": "images/bar1.png",
+        "selectedIconPath": "images/bar-1.png"
+      },
+      {
+        "pagePath": "pages/someNote/someNote",
+        "text": "日记",
+        "iconPath": "images/bar2.png",
+        "selectedIconPath": "images/bar-2.png"
+      },
+      {
+        "pagePath": "pages/mySelf/mySelf",
+        "text": "介绍",
+        "iconPath": "images/bar3.png",
+        "selectedIconPath": "images/bar-3.png"
+      },
+      {
+        "pagePath": "pages/messTome/messTome",
+        "text": "留言",
+        "iconPath": "images/bar4.png",
+        "selectedIconPath": "images/bar-4.png"
+      }
+    ]
   }
 }
