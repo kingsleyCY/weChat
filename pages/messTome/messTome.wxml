@@ -8,8 +8,18 @@
             </view>
         </view>
         <view class="commonts-list">
-            <view wx:for="{{commonList}}" wx:for-index="index" wx:for-item="item">
-                <view></view>
+            <view wx:for="{{commonList}}" wx:for-index="index"
+                  wx:for-item="item" wx:key="index">
+                <view class="background-yin xs-screen"></view>
+                <view class="base-info clearfix">
+                    <image style="width: 80rpx; height: 80rpx" mode="aspectFill"
+                           src="{{item.avtor}}"></image>
+                    <view class="comments-content">
+                        <p></p>
+                        <p></p>
+                    </view>
+                    <view class="comments-time"></view>
+                </view>
             </view>
         </view>
     </view>
