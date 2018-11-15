@@ -7,7 +7,7 @@
                 <span> 条留言</span>
             </view>
         </view>
-        <view class="commonts-list">
+        <!--<view class="commonts-list">
             <view wx:for="{{commonList}}" wx:for-index="index"
                   wx:for-item="item" wx:key="index">
                 <view class="background-yin xs-screen"></view>
@@ -21,6 +21,6 @@
                     <view class="comments-time"></view>
                 </view>
             </view>
-        </view>
+        </view>-->
     </view>
 </view>
