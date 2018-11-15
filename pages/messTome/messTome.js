@@ -15,7 +15,7 @@ Page({
   onLoad() {
     var that = this
     wx.request({
-      url: app.globalData.BASE_URL + '/apis/api/comments/all',
+      url: app.globalData.BASE_URL + '/comments/all',
       method: "POST",
       data: {
         page: 1,
