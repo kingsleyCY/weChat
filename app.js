@@ -49,8 +49,8 @@ App({
     })
   },
   globalData: {
-    //BASE_URL: 'https://lionynn.cn/apis/api',
-    BASE_URL: 'http://localhost:8801',
+    BASE_URL: 'https://lionynn.cn/apis/api',
+    //BASE_URL: 'http://localhost:8804',
     userInfo: null
   }
 })

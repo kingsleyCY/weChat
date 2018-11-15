@@ -4,7 +4,8 @@
     "pages/indexPage/indexPage",
     "pages/someNote/someNote",
     "pages/mySelf/mySelf",
-    "pages/index/index"
+    "pages/index/index",
+    "pages/getScene/getScene"
   ],
   "window": {
     "backgroundTextStyle": "light",
