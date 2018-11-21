@@ -13,8 +13,7 @@ App({
         var code = res.code; //返回code
         var appId = 'wxe5ba942f2278dbb1';
         var secret = '1c51cddc7b1114336780409a2ae7aa6f';
-        return
-        wx.request({
+        /*wx.request({
           url: 'https://api.weixin.qq.com/sns/jscode2session?appid=' + appId + '&secret=' + secret + '&js_code=' + code + '&grant_type=authorization_code',
           data: {},
           header: {
@@ -24,11 +23,11 @@ App({
             var openid = res.data.openid //返回openid
             console.log('openid为' + openid);
           }
-        })
+        })*/
       }
     })
     // 获取用户信息
-    wx.getSetting({
+    /*wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo']) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
@@ -46,11 +45,11 @@ App({
           })
         }
       }
-    })
+    })*/
   },
   globalData: {
-    BASE_URL: 'https://lionynn.cn/apis/api',
-    //BASE_URL: 'http://localhost:8804',
+    // BASE_URL: 'https://lionynn.cn/apis/api',
+    BASE_URL: 'http://localhost:8804/apis/api',
     userInfo: null
   }
 })

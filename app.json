@@ -1,11 +1,11 @@
 {
   "pages": [
+    "pages/getScene/getScene",
     "pages/messTome/messTome",
     "pages/indexPage/indexPage",
     "pages/someNote/someNote",
     "pages/mySelf/mySelf",
-    "pages/index/index",
-    "pages/getScene/getScene"
+    "pages/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

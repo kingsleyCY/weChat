@@ -1,1 +1,7 @@
 /* pages/indexPage/indexPage.wxss */
+.container {
+
+}
+.get-userinfo-btn {
+  margin-top: 10vh;
+}
