@@ -40,23 +40,19 @@ Page({
     })
   },
   bindGetUserInfo(e) {
+    let that = this
     if (e.detail.userInfo) {
-      // this.powerDrawer('close')
-      wx.setStorage({
-        key: "userInfo",
-        data: e.detail.userInfo
-      })
-      /* 获取用户信息 */
-      wx.getStorage({
-        key: 'userInfo',
-        success(res) {
-          console.log(res.data)
+      console.log(that.data.scene.slice(0, -10));
+      wx.request({
+        url: app.globalData.BASE_URL + '/wx/getOpenid',
+        method: "POST",
+        data: {
+          js_code: app.globalData.js_code,
+          username: that.data.scene.slice(0, -10),
+        },
+        success (res) {
+          console.log(res);
         }
-      })
-    } else {
-      wx.setStorage({
-        key: "userInfo",
-        data: null
       })
     }
   },
