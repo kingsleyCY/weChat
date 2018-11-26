@@ -1,5 +1,4 @@
 <view class="container">
-  <!--<view class="btn" bindtap="powerDrawer" data-statu="open">button</view>-->
   <!--mask-->
   <view class="drawer_screen" wx:if="{{showModalStatus}}"></view>
   <view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">

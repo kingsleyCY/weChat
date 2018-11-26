@@ -12,7 +12,7 @@ Page({
     var scene = decodeURIComponent(query.scene)
     var that = this
     if (scene) {
-      // console.log(scene);
+      console.log(scene);
       this.setData({
         scene: scene
       })
@@ -41,7 +41,7 @@ Page({
   },
   bindGetUserInfo(e) {
     if (e.detail.userInfo) {
-      this.powerDrawer('close')
+      // this.powerDrawer('close')
       wx.setStorage({
         key: "userInfo",
         data: e.detail.userInfo
