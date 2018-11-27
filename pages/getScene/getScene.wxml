@@ -4,7 +4,12 @@
   <view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
     <!--drawer content-->
     <view class="drawer_title">授权登录</view>
-    <view class="drawer_content"></view>
+    <view class="drawer_content">
+      <view wx:if="{{systemUserInfo}}">
+        <view>{{systemUserInfo.username}}</view>
+        <view>{{systemUserInfo.useremail}}</view>
+      </view>
+    </view>
     <view class="btn_ok">
       <button wx:if="{{canIUse}}" open-type="getUserInfo" type="primary" bindgetuserinfo="bindGetUserInfo">确定</button>
     </view>

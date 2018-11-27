@@ -6,7 +6,8 @@ Page({
   data: {
     scene: 1,
     canIUse: true,
-    showModalStatus: false
+    showModalStatus: false,
+    systemUserInfo: null
   },
   onLoad(query) {
     var scene = decodeURIComponent(query.scene)
@@ -18,24 +19,40 @@ Page({
       })
     }
     /* 获取用户信息 */
-    wx.getSetting({
-      success(res) {
-        if (res.authSetting['scope.userInfo']) {
-          that.setData({
-            canIUse: false
-          })
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
-          wx.getUserInfo({
-            success: function (res) {
-              console.log(res.userInfo)
+    let tockiteData = {
+      username: that.data.scene.slice(0, -10),
+      tockit: that.data.scene.slice(-10)
+    }
+    console.log(tockiteData);
+    wx.request({
+      url: app.globalData.BASE_URL + '/wx/getUserInfo',
+      method: "POST",
+      data: tockiteData,
+      success (res) {
+        console.log(res);
+        that.setData({
+          systemUserInfo: res.data.date
+        })
+        wx.getSetting({
+          success(res) {
+            if (res.authSetting['scope.userInfo']) {
+              that.setData({
+                canIUse: false
+              })
+              // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+              wx.getUserInfo({
+                success: function (res) {
+                  console.log(res.userInfo)
+                }
+              })
+            } else {
+              that.powerDrawer('open')
+              that.setData({
+                canIUse: true
+              })
             }
-          })
-        } else {
-          that.powerDrawer('open')
-          that.setData({
-            canIUse: true
-          })
-        }
+          }
+        })
       }
     })
   },
@@ -49,9 +66,18 @@ Page({
         data: {
           js_code: app.globalData.js_code,
           username: that.data.scene.slice(0, -10),
+          userInfo: e.detail.userInfo
         },
         success (res) {
           console.log(res);
+          if(res.data.code == 1) {
+            wx.showToast({
+              title: '成功',
+              icon: 'success',
+              duration: 2000
+            })
+          }
+          that.powerDrawer('close')
         }
       })
     }

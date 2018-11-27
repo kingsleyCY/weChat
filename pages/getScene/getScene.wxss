@@ -41,6 +41,7 @@
   width: 100%;
   overflow: hidden;
   word-break: break-all;
+  text-align: center;
 }
 .btn_ok {
   padding: 10px;
