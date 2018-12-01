@@ -1,5 +1,8 @@
 <view class="container">
   <!--mask-->
+  <view>
+    {{resultText}}
+  </view>
   <view class="drawer_screen" wx:if="{{showModalStatus}}"></view>
   <view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
     <!--drawer content-->

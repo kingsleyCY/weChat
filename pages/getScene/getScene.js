@@ -4,6 +4,7 @@ const app = getApp()
 
 Page({
   data: {
+    resultText: '',
     scene: 1,
     canIUse: true,
     showModalStatus: false,
@@ -76,7 +77,16 @@ Page({
               icon: 'success',
               duration: 2000
             })
+          }else {
+            wx.showToast({
+              title: res.data.mess,
+              icon: 'none',
+              duration: 2000
+            })
           }
+          that.setData({
+            resultText: res.data.mess
+          })
           that.powerDrawer('close')
         }
       })
