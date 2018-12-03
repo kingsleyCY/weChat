@@ -16,8 +16,8 @@ App({
     })
   },
   globalData: {
-    // BASE_URL: 'https://lionynn.cn/apis/api',
-    BASE_URL: 'http://localhost:8804/apis/api',
+    BASE_URL: 'https://dev.lionynn.cn/apis/api',
+    // BASE_URL: 'http://localhost:8804/apis/api',
     userInfo: null,
     js_code: null
   }
