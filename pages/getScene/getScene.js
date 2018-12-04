@@ -14,7 +14,6 @@ Page({
     var scene = decodeURIComponent(query.scene)
     var that = this
     if (scene) {
-      console.log(scene);
       this.setData({
         scene: scene
       })
@@ -24,7 +23,6 @@ Page({
       username: that.data.scene.slice(0, -10),
       tockit: that.data.scene.slice(-10)
     }
-    console.log(tockiteData);
     wx.request({
       url: app.globalData.BASE_URL + '/wx/getUserInfo',
       method: "POST",
@@ -34,33 +32,13 @@ Page({
         that.setData({
           systemUserInfo: res.data.date
         })
-        wx.getSetting({
-          success(res) {
-            if (res.authSetting['scope.userInfo']) {
-              that.setData({
-                canIUse: false
-              })
-              // 已经授权，可以直接调用 getUserInfo 获取头像昵称
-              wx.getUserInfo({
-                success: function (res) {
-                  console.log(res.userInfo)
-                }
-              })
-            } else {
-              that.powerDrawer('open')
-              that.setData({
-                canIUse: true
-              })
-            }
-          }
-        })
+        that.powerDrawer('open')
       }
     })
   },
   bindGetUserInfo(e) {
     let that = this
     if (e.detail.userInfo) {
-      console.log(that.data.scene.slice(0, -10));
       wx.request({
         url: app.globalData.BASE_URL + '/wx/getOpenid',
         method: "POST",
@@ -70,7 +48,6 @@ Page({
           userInfo: e.detail.userInfo
         },
         success (res) {
-          console.log(res);
           if(res.data.code == 1) {
             wx.showToast({
               title: '成功',
