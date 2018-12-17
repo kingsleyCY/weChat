@@ -20,7 +20,7 @@ Page({
     }
     /* 获取用户信息 */
     let tockiteData = {
-      username: that.data.scene.slice(0, -10),
+      userId: that.data.scene.slice(0, 21),
       tockit: that.data.scene.slice(-10)
     }
     wx.request({
@@ -29,15 +29,22 @@ Page({
       data: tockiteData,
       success (res) {
         console.log(res);
-        that.setData({
-          systemUserInfo: res.data.date
-        })
-        that.powerDrawer('open')
+        if(res.data.code == 1) {
+          that.setData({
+            systemUserInfo: res.data.date
+          })
+          that.powerDrawer('open')
+        }else {
+          that.setData({
+            resultText: res.data.mess
+          })
+        }
       }
     })
   },
   bindGetUserInfo(e) {
     let that = this
+    console.log(e);
     if (e.detail.userInfo) {
       wx.request({
         url: app.globalData.BASE_URL + '/wx/getOpenid',
@@ -70,7 +77,6 @@ Page({
     }
   },
   powerDrawer: function (flag) {
-    console.log(flag);
     if(flag == 'close' || flag == 'open') {
       this.util(flag)
     }else {
