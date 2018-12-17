@@ -51,7 +51,7 @@ Page({
         method: "POST",
         data: {
           js_code: app.globalData.js_code,
-          username: that.data.scene.slice(0, -10),
+          userId: that.data.scene.slice(0, 21),
           userInfo: e.detail.userInfo
         },
         success (res) {
