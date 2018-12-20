@@ -1,10 +1,11 @@
 {
   "pages": [
+    "pages/getScene/getScene",
+    "pages/codeLogin/codeLogin",
     "pages/messTome/messTome",
     "pages/indexPage/indexPage",
     "pages/someNote/someNote",
     "pages/mySelf/mySelf",
-    "pages/getScene/getScene",
     "pages/index/index"
   ],
   "window": {
