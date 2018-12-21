@@ -18,23 +18,15 @@ Page({
     let that = this
     if (e.detail.userInfo) {
       console.log(e);
-      return
       wx.request({
-        url: app.globalData.BASE_URL + '/wx/getUserInfo',
+        url: app.globalData.BASE_URL + '/wx/authorizationLogin',
         method: "POST",
-        data: tockiteData,
-        success (res) {
-          console.log(res);
-          if(res.data.code == 1) {
-            that.setData({
-              systemUserInfo: res.data.date
-            })
-            that.powerDrawer('open')
-          }else {
-            that.setData({
-              resultText: res.data.mess
-            })
-          }
+        data: {
+          js_code: app.globalData.js_code,
+          socketRadom: this.data.scene
+        },
+        success(res) {
+          console.log(res.data);
         }
       })
     }
