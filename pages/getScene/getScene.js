@@ -17,16 +17,29 @@ Page({
   bindGetUserInfo(e) {
     let that = this
     if (e.detail.userInfo) {
-      console.log(e);
-      wx.request({
-        url: app.globalData.BASE_URL + '/wx/authorizationLogin',
-        method: "POST",
-        data: {
-          js_code: app.globalData.js_code,
-          socketRadom: this.data.scene
-        },
-        success(res) {
-          console.log(res.data);
+      // 登录
+      wx.login({
+        success: res => {
+          // 发送 res.code 到后台换取 openId, sessionKey, unionId
+          var code = res.code; //返回code
+          app.globalData.js_code = res.code
+          wx.request({
+            url: app.globalData.BASE_URL + '/wx/authorizationLogin',
+            method: "POST",
+            data: {
+              js_code: app.globalData.js_code,
+              socketRadom: this.data.scene
+            },
+            success(res) {
+              if (res.data.code == 1) {
+                wx.showToast({
+                  title: '成功',
+                  icon: 'success',
+                  duration: 2000
+                })
+              }
+            }
+          })
         }
       })
     }
