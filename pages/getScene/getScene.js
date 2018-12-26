@@ -27,14 +27,13 @@ Page({
       url: app.globalData.BASE_URL + '/wx/getUserInfo',
       method: "POST",
       data: tockiteData,
-      success (res) {
-        console.log(res);
-        if(res.data.code == 1) {
+      success(res) {
+        if (res.data.code == 1) {
           that.setData({
             systemUserInfo: res.data.date
           })
           that.powerDrawer('open')
-        }else {
+        } else {
           that.setData({
             resultText: res.data.mess
           })
@@ -44,42 +43,53 @@ Page({
   },
   bindGetUserInfo(e) {
     let that = this
-    console.log(e);
     if (e.detail.userInfo) {
-      wx.request({
-        url: app.globalData.BASE_URL + '/wx/getOpenid',
-        method: "POST",
-        data: {
-          js_code: app.globalData.js_code,
-          userId: that.data.scene.slice(0, 21),
-          userInfo: e.detail.userInfo
-        },
-        success (res) {
-          if(res.data.code == 1) {
-            wx.showToast({
-              title: '成功',
-              icon: 'success',
-              duration: 2000
-            })
-          }else {
-            wx.showToast({
-              title: res.data.mess,
-              icon: 'none',
-              duration: 2000
-            })
-          }
-          that.setData({
-            resultText: res.data.mess
+      wx.login({
+        success: res => {
+          var js_code = res.code;
+          wx.showLoading({
+            title: '请求中',
           })
-          that.powerDrawer('close')
+          wx.request({
+            url: app.globalData.BASE_URL + '/wx/getOpenid',
+            method: "POST",
+            data: {
+              js_code: js_code,
+              userId: that.data.scene.slice(0, 21),
+              userInfo: e.detail.userInfo
+            },
+            success(res) {
+              wx.hideLoading()
+              if (res.data.code == 1) {
+                wx.showToast({
+                  title: '成功',
+                  icon: 'success',
+                  duration: 2000
+                })
+              } else {
+                wx.showToast({
+                  title: res.data.mess,
+                  icon: 'none',
+                  duration: 2000
+                })
+              }
+              that.setData({
+                resultText: res.data.mess
+              })
+              that.powerDrawer('close')
+            },
+            error() {
+              wx.hideLoading()
+            }
+          })
         }
       })
     }
   },
   powerDrawer: function (flag) {
-    if(flag == 'close' || flag == 'open') {
+    if (flag == 'close' || flag == 'open') {
       this.util(flag)
-    }else {
+    } else {
       wx.showToast({
         title: '传递参数错误',
         icon: 'none',

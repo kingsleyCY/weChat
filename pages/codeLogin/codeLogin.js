@@ -27,17 +27,19 @@ Page({
       // 登录
       wx.login({
         success: res => {
-          // 发送 res.code 到后台换取 openId, sessionKey, unionId
-          var code = res.code; //返回code
-          app.globalData.js_code = res.code
+          var js_code = res.code;
+          wx.showLoading({
+            title: '请求中',
+          })
           wx.request({
             url: app.globalData.BASE_URL + '/wx/authorizationLogin',
             method: "POST",
             data: {
-              js_code: app.globalData.js_code,
+              js_code: js_code,
               socketRadom: this.data.scene
             },
             success(res) {
+              wx.hideLoading()
               if (res.data.code == 1) {
                 wx.showToast({
                   title: '成功',
@@ -47,9 +49,19 @@ Page({
                 that.setData({
                   status: 'success'
                 })
+              }else {
+                wx.showToast({
+                  title: res.data.mess,
+                  icon: 'none',
+                  duration: 2000
+                })
+                that.setData({
+                  status: 'error'
+                })
               }
             },
             error() {
+              wx.hideLoading()
               that.setData({
                 status: 'error'
               })
