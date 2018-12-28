@@ -13,19 +13,27 @@ App({
           that.globalData.BASE_URL = 'http://localhost:8804/apis/api'
         } else {
           /* 线上 */
-          that.globalData.BASE_URL = 'https://dev.lionynn.cn/apis/api'
+          /*that.globalData.BASE_URL = 'https://dev.lionynn.cn/apis/api'*/
+          wx.showLoading({
+            title: '请求中',
+          })
+          wx.request({
+            url: 'https://dev.lionynn.cn/apis/api/wx/getBaseURL',
+            method: "POST",
+            data: {},
+            success(res) {
+              wx.hideLoading()
+              console.log(res.data.date.wxBaseUrl);
+              that.globalData.BASE_URL = res.data.date.wxBaseUrl
+            },
+            error() {
+              wx.hideLoading()
+              that.globalData.BASE_URL = 'https://dev.lionynn.cn/apis/api'
+            }
+          })
         }
       }
     })
-
-    // 登录
-    /*wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        var code = res.code; //返回code
-        this.globalData.js_code = res.code
-      }
-    })*/
   },
   globalData: {
     BASE_URL: '',
