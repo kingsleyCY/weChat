@@ -23,23 +23,47 @@ Page({
       userId: that.data.scene.slice(0, 21),
       tockit: that.data.scene.slice(-10)
     }
-    wx.request({
-      url: app.globalData.BASE_URL + '/wx/getUserInfo',
-      method: "POST",
-      data: tockiteData,
-      success(res) {
-        if (res.data.code == 1) {
-          that.setData({
-            systemUserInfo: res.data.date
-          })
-          that.powerDrawer('open')
-        } else {
-          that.setData({
-            resultText: res.data.mess
-          })
+    if (!app.globalData.BASE_URL) {
+      wx.showLoading({
+        title: '请求中',
+      })
+      wx.request({
+        url: 'https://dev.lionynn.cn/apis/api/wx/getBaseURL',
+        method: "POST",
+        data: {},
+        success(res) {
+          wx.hideLoading()
+          app.globalData.BASE_URL = res.data.date.wxBaseUrl
+          getUserInfo()
+        },
+        error() {
+          wx.hideLoading()
+          app.globalData.BASE_URL = 'https://dev.lionynn.cn/apis/api'
         }
-      }
-    })
+      })
+    } else {
+      getUserInfo()
+    }
+
+    function getUserInfo() {
+      wx.request({
+        url: app.globalData.BASE_URL + '/wx/getUserInfo',
+        method: "POST",
+        data: tockiteData,
+        success(res) {
+          if (res.data.code == 1) {
+            that.setData({
+              systemUserInfo: res.data.date
+            })
+            that.powerDrawer('open')
+          } else {
+            that.setData({
+              resultText: res.data.mess
+            })
+          }
+        }
+      })
+    }
   },
   bindGetUserInfo(e) {
     let that = this
