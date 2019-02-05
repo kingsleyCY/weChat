@@ -1,1 +1,16 @@
 /* pages/indexPage/indexPage.wxss */
+.scroll-view-item {
+  height: 300rpx;
+}
+#red {
+  background-color: red;
+}
+#yellow {
+  background-color: yellow;
+}
+#blue {
+  background-color: blue;
+}
+#green {
+  background-color: green;
+}
