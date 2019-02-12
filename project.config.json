@@ -4,8 +4,9 @@
 		"urlCheck": false,
 		"es6": false,
 		"postcss": false,
-		"minified": false,
-		"newFeature": true
+		"minified": true,
+		"newFeature": true,
+		"uglifyFileName": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.9.94",

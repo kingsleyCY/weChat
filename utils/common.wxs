@@ -1,0 +1,11 @@
+var delHtmlTag = function (str) {
+  var reg1 = getRegExp("<[^>]+>", "g");
+  str = str.replace(reg1, "")
+  var reg2 = getRegExp("\s+", "ig");
+  str = str.replace(reg2, "")
+  return str;
+}
+
+module.exports = {
+  delHtmlTag: delHtmlTag
+};
