@@ -26,7 +26,7 @@ Page({
           that.setData({
             listData: res.data.date.article_list
           })
-        }else {
+        } else {
           wx.showToast({
             title: '获取列表数据失败',
             icon: 'none',
@@ -46,6 +46,9 @@ Page({
         that.setData({
           listData: []
         })
+      },
+      complete() {
+        wx.stopPullDownRefresh()
       }
     })
   },

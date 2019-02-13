@@ -11,9 +11,10 @@
         <image mode="scaleToFill" src="{{item.cover}}"></image>
         <view>
           <view class="item-atricle">{{item.title}}</view>
-          <view class="item-content">
+          <!--<view class="item-content">
             {{tools.delHtmlTag(item.content)}}
-          </view>
+          </view>-->
+          <rich-text nodes="{{tools.delHtmlTag(item.content)}}" class="item-content"></rich-text>
         </view>
       </view>
     </view>

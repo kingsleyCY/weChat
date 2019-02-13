@@ -1,14 +1,14 @@
 /**app.wxss**/
-page{
+page {
   height: 100%;
+  font-family: "KaiTi" !important;
 }
 .container {
-  height: 100%;
   box-sizing: border-box;
   background-color: #f6f6f6;
 }
 .header-title {
-  height: 120rpx;
+  height: 120 rpx;
   background-color: white;
   text-align: center;
   line-height: 120rpx;
@@ -19,17 +19,16 @@ page{
 }
 .container > .content {
   display: block;
-  height: calc(100% - 120rpx);
   box-sizing: border-box;
   padding: 20rpx 24rpx 0;
 }
 .article-list {
   background-color: white;
-  font-family: "楷体";
+  font-family: "KaiTi" !important;
 }
 .article-list .article-title {
   border-bottom: 1px solid #ebeef5;
-  height: 60 rpx;
+  height: 60rpx;
   line-height: 60rpx;
   padding-left: 30rpx;
   box-sizing: border-box;
@@ -58,9 +57,10 @@ page{
   overflow: hidden;
   text-overflow: ellipsis;
   word-wrap: break-word;
-  white-space: normal!important;
-  line-clamp: 2;
-  max-height: 55rpx;
-  min-height: 55rpx;
+  white-space: normal !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  max-height: 60rpx;
+  min-height: 60rpx;
   font-size: 24rpx;
 }

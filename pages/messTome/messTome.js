@@ -22,6 +22,7 @@ Page({
         pre_page: 20
       },
       success (res) {
+        /*wx.hideLoading()*/
         var resuletList = [];
         res.data.date.resuletList.forEach(function (item, i) {
           resuletList.push({
