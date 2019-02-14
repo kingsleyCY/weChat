@@ -1,14 +1,13 @@
 /**app.wxss**/
 page {
   height: 100%;
-  font-family: "KaiTi" !important;
 }
 .container {
   box-sizing: border-box;
   background-color: #f6f6f6;
 }
 .header-title {
-  height: 120 rpx;
+  height: 120rpx;
   background-color: white;
   text-align: center;
   line-height: 120rpx;
@@ -24,7 +23,7 @@ page {
 }
 .article-list {
   background-color: white;
-  font-family: "KaiTi" !important;
+  font-family: "microsoft yahei" !important;
 }
 .article-list .article-title {
   border-bottom: 1px solid #ebeef5;

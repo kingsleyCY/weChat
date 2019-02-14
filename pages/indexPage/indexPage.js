@@ -6,7 +6,7 @@ Page({
   data: {
     listData: []
   },
-  onLoad() {
+  onShow() {
     /* 获取列表数据 */
     this.getArticleList()
   },

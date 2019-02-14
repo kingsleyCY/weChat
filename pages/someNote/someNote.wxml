@@ -1,3 +1,23 @@
 <view class="container">
-    日记
+  <view class="header-title">
+    Some OF Myself
+  </view>
+  <view class="content">
+    <view class="article-list">
+      <view class="article-title">
+        相关动态
+      </view>
+      <view class="article-item" wx:for="{{listData}}" wx:key="index" wx:for-index="index" wx:for-item="item">
+        <image mode="scaleToFill" src="{{item.cover}}"></image>
+        <view>
+          <view class="item-atricle">{{item.title}}</view>
+          <!--<view class="item-content">
+            {{tools.delHtmlTag(item.content)}}
+          </view>-->
+          <rich-text nodes="{{tools.delHtmlTag(item.content)}}" class="item-content"></rich-text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <wxs src="../../utils/common.wxs" module="tools"/>
 </view>

@@ -21,13 +21,11 @@ Page({
         page: 1,
         pre_page: 20
       },
-      success (res) {
+      success(res) {
         /*wx.hideLoading()*/
-        var resuletList = [];
-        res.data.date.resuletList.forEach(function (item, i) {
-          resuletList.push({
-            avtor: that.computedavtor(item.userInfo.avtor)
-          })
+        var resuletList = JSON.parse(JSON.stringify(res.data.date.resuletList))
+        resuletList.forEach(function (item, i) {
+          item.userInfo.computedAvtor = that.computedavtor(item.userInfo.avtor)
         })
         that.setData({
           page_info: {
@@ -37,6 +35,7 @@ Page({
           },
           commonList: resuletList
         })
+        console.log(that.data.commonList);
       }
     })
   },
