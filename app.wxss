@@ -63,3 +63,10 @@ page {
   min-height: 60rpx;
   font-size: 24rpx;
 }
+.clearfix::after {
+  content: '';
+  display: block;
+  height: 0;
+  line-height: 0;
+  clear: both;
+}

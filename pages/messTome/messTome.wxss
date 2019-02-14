@@ -3,9 +3,12 @@
   padding: 20rpx 50rpx;
   font-size: 12px;
   font-family: "楷体";
+  background-color: white;
+  height: 100%;
 }
 .commonts-box {
   width: 100%;
+  height: 100%;
 }
 .commonts-box .commonts-title {
   width: 100%;
@@ -33,3 +36,48 @@
   font-family: Impact!important;
   font-size: 20px;
 }
+/* 列表CSS */
+.commonts-list .list-item {
+  border-bottom: 1px dashed rgba(229, 229, 229, 0.69);
+  padding: 15rpx 0;
+}
+.list-item:last-child {
+  border-bottom: none;
+}
+.list-item .base-info {
+  position: relative;
+}
+.list-item .user-avtor {
+  width: 80rpx;
+  height: 80rpx;
+  float: left;
+}
+.list-item .comments-content {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 10% 0 100rpx;
+}
+.list-item .comments-content p {
+  color: #e74851;
+  padding-bottom: 10rpx;
+}
+.list-item .item-content{
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

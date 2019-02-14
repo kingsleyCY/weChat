@@ -5,6 +5,7 @@ const util = require('./../../utils/util')
 
 Page({
   data: {
+    scrollTop: 100,
     page_info: {
       page: 1,
       per_page: 20,
@@ -12,7 +13,7 @@ Page({
     },
     commonList: []
   },
-  onLoad() {
+  onShow() {
     var that = this
     wx.request({
       url: app.globalData.BASE_URL + '/comments/all',
@@ -22,7 +23,6 @@ Page({
         pre_page: 20
       },
       success(res) {
-        /*wx.hideLoading()*/
         var resuletList = JSON.parse(JSON.stringify(res.data.date.resuletList))
         resuletList.forEach(function (item, i) {
           item.userInfo.computedAvtor = that.computedavtor(item.userInfo.avtor)
@@ -41,6 +41,9 @@ Page({
   },
   /* 处理图片路径 */
   computedavtor(url) {
-    return app.globalData.BASE_URL + '/images/avtor/' + url.slice('/static/avtor/'.length)
+    return 'https://lioncc.oss-cn-beijing.aliyuncs.com/base-avtor/' + url.slice('/static/avtor/'.length)
+  },
+  hasToDown() {
+    console.log(1);
   }
 })

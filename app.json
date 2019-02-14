@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/indexPage/indexPage",
     "pages/messTome/messTome",
+    "pages/indexPage/indexPage",
     "pages/someNote/someNote",
     "pages/mySelf/mySelf",
     "pages/getScene/getScene",
