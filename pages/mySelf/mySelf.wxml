@@ -1,3 +1,5 @@
 <view class="container">
-    介绍
+  <view>
+    <image src=""></image>
+  </view>
 </view>

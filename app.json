@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/mySelf/mySelf",
     "pages/messTome/messTome",
     "pages/indexPage/indexPage",
     "pages/someNote/someNote",
-    "pages/mySelf/mySelf",
     "pages/getScene/getScene",
     "pages/codeLogin/codeLogin",
     "pages/index/index"

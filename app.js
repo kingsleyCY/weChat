@@ -6,7 +6,7 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-    that.globalData.BASE_URL = 'http://192.168.1.3:8804/apis/api'
+    that.globalData.BASE_URL = 'http://192.168.1.180:8804/apis/api'
     return
     wx.getSystemInfo({
       success(res) {
