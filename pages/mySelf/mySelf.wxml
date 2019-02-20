@@ -1,5 +1,5 @@
 <view class="container">
   <view>
-
+    <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取</button>
   </view>
 </view>
